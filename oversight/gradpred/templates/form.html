@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graduation Admission Prediction</title>
+</head>
+<body>
+    <form action="" method="POST" >
+        {% csrf_token %}
+        Enter Gre Score : <input type="text" name="gre"><br>
+        Enter Toefl Score : <input type="text" name="toefl"><br>
+        Enter University Tier : <br>
+        <select name="uni">
+            <option value="4">IIT</option>
+            <option value="3">Tier 1</option>
+            <option value="2">Tier 2</option>
+            <option value="1">Tier 3</option>
+        </select><br>
+        Enter SOP Rating according to you (out of 5) : <input type="text" name="sop"><br>
+        Enter Number of LORs : <input type="text" name="lor"><br>
+        Enter CGPA : <input type="text" name="cgpa"><br>
+        Research? : <br>
+        <select name="research">
+            <option value="yes">No</option>
+            <option value="no">Yes</option>
+        </select><br>
+        <input type="submit" value="Check"> 
+    </form>
+
+    {% if output == 0 %}
+    <h4 style="text-align: left; color: #C60021;">Your Admit is difficult, Please improve your Profile</h4>
+        {% if lst %}
+        Still you can manage to get into:
+        {% for i in lst %}
+        {{ i }}<br>
+        {% endfor %}
+        {% else %}
+        {% for i in lst %}
+        {{ i }}<br>
+        {% endfor %}
+        {% endif %}
+
+    {% elif output == 1 %}
+    <h4 style="text-align: left; color: #C60021;">You can expect an admit </h4><br>Colleges you can get into : <br>
+    <ul>
+    {% for i in lst %}
+    <li>{{ i }}</li><br>
+    {% endfor %}
+    </ul>
+    
+    {% else %}
+    <h4 style="text-align: left; color: #C60021;">Welcome, Please Enter Your Details</h4>
+    {% endif %}
+</body>
+</html>
