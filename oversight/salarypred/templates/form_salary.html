@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graduation Admission Prediction</title>
+</head>
+<body>
+    <form action="" method="POST" >
+        {% csrf_token %}
+        Enter Gender : <input type="text" name="gender"><br>
+        Enter University Tier : <br>
+        College Tier : <select name="uni">
+            <option value="1">Tier 1</option>
+            <option value="2">Tier 2</option>
+            <option value="3">Tier 3</option>
+        </select><br>
+        
+        Type of Degree : <select name="degree">
+            <option value="0">Bachelors</option>
+            <option value="1">Masters</option>
+        </select><br>
+
+        Specialization in : <select name="specialization">
+            <option value="0">Computer science and engineering</option>
+            <option value="1">Electronics and Telecommunications</option>
+            <option value="2">Information Technology</option>
+            <option value="3">Automobile/automotive engineering</option>
+            <option value="4">Biotechnology</option>
+            <option value="5">Mechanical engineering</option>
+            <option value="6">Instrumentation engineering</option>
+            <option value="7">Aeronautical engineering</option>
+            <option value="8">Biomedical engineering</option>
+            <option value="9">Chemical engineering</option>
+            <option value="10">Civil engineering</option>
+            <option value="11">Computer engineering</option>
+            <option value="12">Electrical engineering</option>
+            <option value="13">Telecommunication engineering</option>
+            <option value="14">Industrial engineering</option>
+            <option value="15">Electronics and Computer engineering</option>
+            <option value="16">Electronics engineering</option>
+            <option value="17">Mechatronics</option>
+            <option value="18">Others</option>
+        </select><br>
+
+        Enter Pointer : <input type="text" name="cgpa"><br>
+        Enter Graduation Year : <input type="text" name="year"><br>
+        <input type="submit" value="Check"> 
+    </form>
+
+    {% if output != 99 %}
+    <h4 style="text-align: left; color: #C60021;">You Can Expect A Salary of: </h4><br>
+    {{ output }}
+    {% else %}
+    <h4 style="text-align: left; color: #C60021;">Welcome, Please Enter Your Details</h4>
+    {% endif %}
+</body>
+</html>
