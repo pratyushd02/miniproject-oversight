@@ -1,4 +1,149 @@
-<!DOCTYPE html>
+
+
+{% comment %} 
+{% include "base.html" %}
+<form style="padding-left:100px ; padding-right:100px ; margin-top:50px" >
+    <h1 style="padding-left:35%">Please Enter Your Details! </h1>
+    <form>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputEmail4">Score(Cgpa)</label>
+            <input type="email" class="form-control" id="inputEmail4" placeholder=" Average Cgpa">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputPassword4">Marks</label>
+            <input type="password" class="form-control" id="inputPassword4" placeholder="Marks">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputAddress">University Name</label>
+          <input type="text" class="form-control" id="inputAddress" placeholder="University Name (Current)">
+        </div>
+        <div class="form-group">
+          <label for="inputAddress2">Something</label>
+          <input type="text" class="form-control" id="inputAddress2" placeholder="Something ">
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputCity">something </label>
+            <input type="text" class="form-control" id="inputCity">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputState">State</label>
+            <select id="inputState" class="form-control">
+              <option selected>Choose...</option>
+              <option>...</option>
+            </select>
+          </div>
+          <div class="form-group col-md-2">
+            <label for="inputZip">Zip</label>
+            <input type="text" class="form-control" id="inputZip">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="gridCheck">
+            <label class="form-check-label" for="gridCheck">
+              Remember
+            </label>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Predict Colleges</button>
+      </form>
+  </form> {% endcomment %}
+
+
+
+  {% include "base.html" %}
+<form style="padding-left:100px ; padding-right:100px ; margin-top:50px" action="" method="POST" >
+    <h2 style="text-align: center; color: #C60021;">Please Enter Your Details! </h2>
+    
+            {% csrf_token %}
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="gre">Enter Gre score : </label>
+                <input type="text" class="form-control" name="gre" id="gre" placeholder="Gre score">
+              </div>
+
+              <div class="form-group col-md-6">
+                <label for="lor">Enter Number of LORs :</label>
+                <input type="text" class="form-control" id="lor" name="lor" placeholder="Number of LORs">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="cgpa">Enter Score of cgpa :</label>
+                <input type="text" class="form-control" name="cgpa" placeholder="Average CGPA">
+              </div>
+
+          <div class="form-group col-md-6">
+            <label for="toefl">Enter toefl Score :</label>
+            <input type="text" class="form-control" id="toefl" name="toefl" placeholder="Toefl Score">
+          </div>
+        </div>      
+          <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputState">Enter University Tier :</label>
+                <select name="uni"  class="form-control">
+                  <option value="4">IIT</option>
+                  <option value="3">Tier 1</option>
+                  <option value="2">Tier 2</option>
+                  <option value="1">Tier 3</option>
+                </select>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                  <label for="sop">Enter SOP Rating : </label>
+                  <input type="text" class="form-control" name="sop" id="sop" placeholder="SOP Rating">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputState">Research :</label>
+                  <select name="research"  class="form-control">
+                    <option value="0">Yes</option>
+                    <option value="1">No</option>
+                  </select>
+              </div>
+          </div>    
+
+        </div>
+
+        
+          <input type="submit" value="Predict Admission" class="btn btn-primary">
+        </form>
+        
+    {% if output == 0 %}
+    <h4 style="text-align: center; color: #C60021;">Your Admit is difficult, Please improve your Profile</h4>
+        {% if lst %}
+        Still you can manage to get into:
+        {% for i in lst %}
+        {{ i }}<br>
+        {% endfor %}
+        {% else %}
+        {% for i in lst %}
+        {{ i }}<br>
+        {% endfor %}
+        {% endif %}
+
+    {% elif output == 1 %}
+    <h4 style="text-align: center; color: #C60021;">You can expect an admit </h4><br>
+    <h5 style="margin-left : 80px; color:black ;">Colleges you can get into :</h5>
+    <ul style="margin-left : 80px;">
+    {% for i in lst %}
+    <li>{{ i }}</li><br>
+    {% endfor %}
+    </ul>
+    
+    {% else %}
+    <h4 > </h4>
+    {% endif %}
+    
+
+
+    </body>
+</html> 
+
+
+
+
+{% comment %} <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -55,3 +200,4 @@
     {% endif %}
 </body>
 </html>
+ {% endcomment %}
