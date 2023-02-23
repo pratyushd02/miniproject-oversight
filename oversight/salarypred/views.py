@@ -19,9 +19,9 @@ def predict(request):
     yr = int(request.POST.get("year",-1))
     
     if(gender == -1 or uni == -1 or degree == -1 or sp == -1 or pt == -10 or yr == -1 ):
+       
         return render(request, 'form_salary.html',{'output' : output})
     else:
-        
           
         output = round(model.predict([[gender,uni,degree,sp,pt,yr]])[0]) 
     

@@ -25,6 +25,7 @@ def predict(request):
         lor = 5
     
     if research == "yes":
+
         research = 1
     else:
         research = 0

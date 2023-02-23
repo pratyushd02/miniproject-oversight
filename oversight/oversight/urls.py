@@ -17,9 +17,15 @@ from django.contrib import admin
 from django.urls import path,include
 from django.views.generic.base import TemplateView
 
+from oversight import views
+
 urlpatterns = [
     #path('',TemplateView.as_view(template_name='home.html')),
     path('admin/', admin.site.urls),
     path('gradpred/', include('gradpred.urls')),
     path('salarypred/', include('salarypred.urls')),
+    path('', views.index,name="home"),
+    path('forums', views.forums,name="forums"),
+    path('pro_ideas', views.pro_ideas,name="pro_ideas"),
+    path('contact', views.contact,name="contact"),
 ]
