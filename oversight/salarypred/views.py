@@ -15,7 +15,7 @@ def predict(request):
     uni = float(request.POST.get("uni",-1))
     degree = float(request.POST.get("degree",-1))
     sp = float(request.POST.get("specialization",-1))
-    pt = float(request.POST.get("specialization",-1)) * 10
+    pt = float(request.POST.get("cgpa",-1)) * 10
     yr = int(request.POST.get("year",-1))
     
     if(gender == -1 or uni == -1 or degree == -1 or sp == -1 or pt == -10 or yr == -1 ):
