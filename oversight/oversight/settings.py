@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'gradpred',
     'oversight',
-    'salarypred',
 ]
 
 MIDDLEWARE = [
@@ -126,3 +125,7 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+import openai
+
+openai.api_key = "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"
