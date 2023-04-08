@@ -24,7 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('gradpred/', include('gradpred.urls')),
     path('', views.index,name="home"),
-    path('forums', views.forums,name="forums"),
+    path('forums/', views.forums,name="forums"),
     path('pro_ideas', views.pro_ideas,name="pro_ideas"),
     path('contact', views.contact,name="contact"),
 ]

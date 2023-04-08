@@ -37,8 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
     'gradpred',
     'oversight',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -128,4 +130,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 import openai
 
-openai.api_key = "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"
+openai.api_key = "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"
