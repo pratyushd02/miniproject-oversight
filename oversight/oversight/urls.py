@@ -26,5 +26,6 @@ urlpatterns = [
     path('', views.index,name="home"),
     path('forums/', views.forums,name="forums"),
     path('pro_ideas', views.pro_ideas,name="pro_ideas"),
+    path('notes',views.notes,name="notes"),
     path('contact', views.contact,name="contact"),
 ]

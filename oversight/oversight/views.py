@@ -22,8 +22,14 @@ def index(request):
 def forums(request):
     if request.method == 'POST':
         input_text = request.POST['input']
-        response = chatbot_response(input_text)
+        response = chatbot_response("is "+input_text+"related to science answer in yes or no")
+        response2 = chatbot_response("is "+input_text+"a form of greeting answer in yes or no")
         response = response.strip()
+        response2 = response2.strip()
+        if response == "Yes" or response2 == "Yes" or "college" in input_text or "engineering" in input_text or "engg" in input_text:
+            response = chatbot_response(input_text)
+        else:
+            response = "Please enter engineering related queries"
         return JsonResponse({'response':response})
     else:
         return render(request,'forums.html')
@@ -50,8 +56,21 @@ def pro_ideas(request):
     
     return render(request,'pro_ideas.html',{'response' : response})
 
-def add(request):
-    return render(request,'add.html')
+def notes(request):
+    type = float(request.POST.get("type",-1))
+    chp = request.POST.get("chp","")
+    sub = request.POST.get("sub","")
+    sem = request.POST.get("sem","")
+    branch = request.POST.get("branch","")
+    response = ""
+    if type==1:
+        response = chatbot_response("notes on "+chp+","+sub+" for sem"+sem+branch+"engineering")
+    elif type==2:
+        response = chatbot_response("generate 10 practice questions on "+chp+","+sub+" for sem"+sem+branch+"engineering")
+    else:
+        response = ""
+    
+    return render(request,'notes.html',{'response' : response})
 
 def contact(request):
     return HttpResponse("This Is contact page")

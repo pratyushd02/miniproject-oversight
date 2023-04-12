@@ -1,0 +1,28 @@
+{% include "base.html" %}
+
+<form method="POST">
+    {% csrf_token %}
+
+    <select name="type"  class="form-control">
+      <option value="1">Notes</option>
+      <option value="2">Questions</option>
+    </select> <br>
+
+    <label for="chapter">Enter topic : </label>
+    <input type="text" class="form-control" name="chp" placeholder="Enter the topic">
+
+    <label for="subject">Enter Subject : </label>
+    <input type="text" class="form-control" name="sub" placeholder="Enter the subject">
+
+    <label for="sem">Enter Sem : </label>
+    <input type="text" class="form-control" name="sem" placeholder="Enter the semester">
+
+    <label for="branch">Enter Branch : </label>
+    <input type="text" class="form-control" name="branch" placeholder="Enter the branch">
+
+    <button type="submit">Generate</button>
+    </form>
+
+    {% if response %}
+    <p>{{ response }}</p>
+    {% endif %}

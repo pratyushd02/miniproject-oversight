@@ -130,4 +130,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 import openai
 
-openai.api_key = "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"
+openai.api_key = "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"
