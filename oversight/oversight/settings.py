@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'gradpred',
     'oversight',
     'crispy_forms',
+    'crispy_bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -128,6 +129,8 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 import openai
 
-openai.api_key = "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"
+openai.api_key = "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"

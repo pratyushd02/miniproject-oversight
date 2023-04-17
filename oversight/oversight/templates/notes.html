@@ -20,9 +20,13 @@
     <label for="branch">Enter Branch : </label>
     <input type="text" class="form-control" name="branch" placeholder="Enter the branch">
 
-    <button type="submit">Generate</button>
-    </form>
+    <input type="submit" value="Generate" name="submit"></input>
+    
 
     {% if response %}
     <p>{{ response }}</p>
+    <input type="hidden" name="savecontent" value="{{ response }}">
+    <input type="hidden" name="savecontenttype" value="{{ type }}">
+    <input onclick="alert('Saved!')" type="submit" name="save" value="SAVE" id="save"></input></p>
     {% endif %}
+  </form>

@@ -19,10 +19,22 @@
     <input type="text" class="form-control" name="domain" id="domain" placeholder="Enter Project Domain">
 
 
-    <button type="submit">Find</button>
-    </form>
+    <input type="submit" name="submit"></input>
+    
     
     {% if response %}
     <h2>Chatbot response:</h2>
-    <p>{{ response }}</p>
+    <p>{{ response }}
+    <input type="hidden" name="savecontent" value="{{ response }}">
+    <input onclick="alert('Saved!')" type="submit" name="save" value="SAVE" id="save"></input></p>
     {% endif %}
+
+  </form>
+  <script>
+    function change() 
+  {
+    var elem = document.getElementById("save");
+    if (elem.value=="SAVE") elem.value = "Saved!";
+    
+  }
+  </script>

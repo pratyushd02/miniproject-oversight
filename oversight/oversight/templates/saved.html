@@ -1,0 +1,22 @@
+{% include "base.html" %}
+<form method="POST">
+    {% csrf_token %}
+
+<h3>Project Ideas</h3>
+{% for i in ideas %}
+{{ i }} 
+<input type="hidden" name="deletecontent" value="{{ i }}">
+<input type="submit" name="delete" value="Delete"></input><br><br>
+{% endfor %}
+
+<h3>Notes</h3>
+{% for i in notes %}
+{{ i }} 
+{% endfor %}
+
+<h3>Question Bank</h3>
+{% for i in questions %}
+{{ i }} 
+{% endfor %}
+
+</form>
