@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap');
+        
+
+        p{
+            margin:20px;
+        }
+        
+        body {
+            background-color: #fff;
+        }
+        
+        
+        .float-start {
+            width: 50%;
+            margin-right: 0px;
+        }
+        
+        .float-end {
+            text-align: start;
+        }
+        
+        h1 {
+            font-size: 40px;
+            margin-top: 50px;
+            margin-left: 25px;
+            color: #252525;
+        }
+        
+        h1 span {
+            font-family: 'Dancing Script', cursive;
+            color: #f6a192;
+            font-size: 64px;
+        }
+        
+        
+        .div-inline {
+            display: inline;
+        }
+        
+        .drop {
+            display: inline;
+            background-color: #fff;
+            color: #252525;
+            margin-left: 20px;
+            margin-bottom: 20px;
+            width: 300px;
+        
+        }
+        
+        .drop {
+            background-color: #fff;
+            color: #252525;
+            border: 2px solid #252525;
+            border-radius: 10px;
+        }
+        
+        .drop:hover {
+            color: #252525;
+        }
+        
+        input[type=text] {
+            background-color: #fff;
+            border: 2px solid #252525;
+            border-radius: 10px;
+            color: #252525;
+            width: 200px;
+            height: 40px;
+            margin-left: 20px;
+        }
+        
+        .submit {
+            background-image: linear-gradient(to right, #EC6F66 0%, #F3A183 51%, #EC6F66 100%);
+            margin: 10px;
+            padding: 7px 35px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+            display: block;
+            border: 1px solid #eee;
+            margin-left: 75%;
+            margin-top: 20px;
+        }
+        
+        .submit:hover {
+            background-position: right center;
+            /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
+            border: none;
+        }
+        
+        .response {
+            width: 500px;
+            height: 350px;
+            background-color: #fff;
+            border: 2px solid #252525;
+            color: #252525;
+            border-radius: 20px;
+        }
+        
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: #252525;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: #252525;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+        </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+        </script>
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/project.css">
+    <title>OverSight - Project Ideas</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg ">
+        <div class="container">
+            <a class="navbar-brand" href="#">Oversight</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Sight-Bud</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link active" href="#">Innovate Ave</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Sight-Notes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Sight-SAP</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="main">
+        <div class="container">
+            <h1><span>Creativity </span>is the mother of <span
+                    style="color: #537FE7; font-size: 64px;">innovation</span></h1>
+
+            <form method="POST">
+                 {% csrf_token %} 
+
+                <div class="float-start">
+                    <h3>Enter the following details</h3>
+                    <div class="div-inline">
+                        Choose your Degree type: <br>
+                        <select name="degree" class="form-select drop" aria-label="Default select example">
+                            <option selected>Degree</option>
+                            <option value="1">Bachelors</option>
+                            <option value="2">Masters</option>
+                        </select> <br>
+                        Choose your Project type: <br>
+                        <select name="type" class="form-select drop" aria-label="Default select example">
+                            <option selected>Type</option>
+                            <option value="1">Mini</option>
+                            <option value="2">Major</option>
+                        </select>
+                        <!-- <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Choose Your Degree
+                            </button>
+                            <select name="degree" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <option value="1" class="dropdown-item">Bachelors</option>
+                                <option value="2" class="dropdown-item">Masters</option>
+                            </select>
+                        </div>
+                        <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Choose Your Project Type
+                            </button>
+                            <select name="type" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <option value="1" class="dropdown-item">Mini</option>
+                                <option value="2" class="dropdown-item">Major</option>
+                            </select>
+                        </div> -->
+                    </div>
+                    <br>
+
+                    <!-- <label for="inputState">Enter Degree :</label>
+                    <select name="degree" class="form-control">
+                        <option value="1">Bachelors</option>
+                        <option value="2">Masters</option>
+                    </select>
+
+                    <label for="type">Enter Project Type: </label>
+                    <select name="type" class="form-control">
+                        <option value="1">Mini</option>
+                        <option value="2">Major</option>
+                    </select> -->
+
+                    <!-- <label for="domain">Enter Domain : </label>
+                    <input type="text" class="form-control" name="domain" id="domain"
+                        placeholder="Enter Project Domain"> -->
+                    Give us a Domain/Subject for your project
+                    <div class="input-group mb-3">
+                        <input name="domain" type="text" class="form-control" placeholder="Enter Your Project Domain">
+                    </div>
+                    <input type="submit" class="submit" name="submit"></input>
+                </div>
+                <div class="float-end">
+                    <h3> Ideas curated for you</h3>
+                    <div class="response">
+                        <!-- {% if response %} -->
+                        <p>{{ response }}
+                            <input type="hidden" name="savecontent" value="{{ response }}">
+                        </p>
+                        {% endif %}
+                    </div>
+                    <input onclick="alert('Saved!')" type="submit" class="submit" name="save" value="SAVE"
+                        id="save"></input>
+                </div>
+            </form>
+        </div>
+    </section>
+    <script>
+        function change() {
+            var elem = document.getElementById("save");
+            if (elem.value == "SAVE") elem.value = "Saved!";
+
+        }
+    </script>
+</body>
+
+</html>

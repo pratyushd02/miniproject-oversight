@@ -44,6 +44,7 @@ def pro_ideas(request):
     response = ""
     if request.method == 'POST':
         if request.POST.get("submit"):
+            print(1)
             degree = float(request.POST.get("degree",-1))
             type = float(request.POST.get("type",-1))
             domain = request.POST.get("domain",-1)
@@ -68,7 +69,7 @@ def pro_ideas(request):
             u = User.objects.get(email = current_user)
             u.ideas += ",>"+response2
             u.save()
-    return render(request,'pro_ideas.html',{'response' : response})
+    return render(request,'project_ideas.html',{'response' : response})
 
 def notes(request):
     response = ""
@@ -103,7 +104,7 @@ def notes(request):
                 u.save()
             
     
-    return render(request,'notes.html',{'response' : response,'type':type})
+    return render(request,'notes1.html',{'response' : response,'type':type})
 
 def saved(request):
     current_user = request.user.email
