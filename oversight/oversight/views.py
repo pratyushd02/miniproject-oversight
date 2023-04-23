@@ -112,25 +112,26 @@ def saved(request):
     ideas = u.ideas.split(',>')
     if ' ' in ideas:
         ideas.remove(' ')
-    if request.POST.get("delete"):
-        i = request.POST.get("deletecontent")
-        ideas.remove(i)
+    if request.POST.get("deleteideas"):
         u.ideas = " "
         u.save()
-        for i in ideas:
-            u.ideas += ",>"+i
-        u.save()
-        ideas = u.ideas.split(',>')
-        if ' ' in ideas:
-            ideas.remove(' ')
+        
             
     questions = u.questions.split(',>')
     if ' ' in questions:
         questions.remove(' ')
     
+    if request.POST.get("deleteque"):
+        u.questions = " "
+        u.save()
+    
     notes = u.notes.split(',>')
     if ' ' in notes:
         notes.remove(' ')
+    
+    if request.POST.get("deletenotes"):
+        u.notes = " "
+        u.save()
         
     return render(request,'saved.html',{'ideas':ideas,'notes':notes,'questions':questions})
 

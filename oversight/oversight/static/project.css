@@ -91,9 +91,15 @@ input[type=text] {
 }
 
 .response {
-    width: 500px;
+    width:700px ;
     height: 350px;
     background-color: #fff;
+    border: 2px solid white;
+    color: white;
+    border-radius: 20px;
+}
+
+.response2{
     border: 2px solid #252525;
     color: #252525;
     border-radius: 20px;

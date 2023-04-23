@@ -3,60 +3,6 @@
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 </header>
 <html lang="en">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light"  style="padding:20px">
-        <a class="navbar-brand" href="">OverSight </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/forums">ChatBot</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/pro_ideas">Project Ideas</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/notes">Notes</a>
-            </li>
-            <li class="nav-item ">
-                <a class="nav-link" href="/gradpred">Admission Prediction</a>
-                <!--<a class="dropdown-item" href="/salarypred">Salary</a>  -->  
-            </li>
-          </ul>
-          
-          <button><a href="/saved">Saved</a></button>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            
-          </form>
-
-          <ul class="navbar-nav mr-auto">
-            {% if user.is_authenticated %}
-            
-            <li class="nav-item">
-              <a class="nav-link" href="/logout">Logout</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Welcome, {{user.username}}</a>
-            </li>
-      
-            {% else %}
-      
-            <li class="nav-item">
-              <a class="nav-link" href="/login">Login</a>
-            </li>
-      
-            {% endif %}
-          </ul>
-          
-        </div>
-      </nav>
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -98,95 +44,10 @@
   </body>
  
 
-<style>
-   
-    footer{ 
-        width:100%;
-        background: #252429;
-        position:fixed;
-        bottom:0px;
-        {% comment %} margin-top:40%; {% endcomment %}
-        height: 70px;
-        z-index: 1;
-        color: #ffffff;
-      }
-    </style>
+
 
     <div>
-  <footer>
-       <footer class="text-center text-white" style="background-color: grey;">
-  <!-- Grid container -->
-  <div class="container pt-4">
-    <!-- Section: Social media -->
-    <section class="mb-4">
-      <!-- Facebook -->
-      <a
-        class="btn btn-link btn-floating btn-lg text-dark m-1"
-        href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
-        ><i class="fab fa-facebook-f"></i
-      ></a>
-
-      <!-- Twitter -->
-      <a
-        class="btn btn-link btn-floating btn-lg text-dark m-1"
-        href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
-        ><i class="fab fa-twitter"></i
-      ></a>
-
-      <!-- Google -->
-      <a
-        class="btn btn-link btn-floating btn-lg text-dark m-1"
-        href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
-        ><i class="fab fa-google"></i
-      ></a>
-
-      <!-- Instagram -->
-      <a
-        class="btn btn-link btn-floating btn-lg text-dark m-1"
-        href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
-        ><i class="fab fa-instagram"></i
-      ></a>
-
-      <!-- Linkedin -->
-      <a
-        class="btn btn-link btn-floating btn-lg text-dark m-1"
-        href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
-        ><i class="fab fa-linkedin"></i
-      ></a>
-      <!-- Github -->
-      <a
-        class="btn btn-link btn-floating btn-lg text-dark m-1"
-        href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
-        ><i class="fab fa-github"></i
-      ></a>
-    </section>
-    <!-- Section: Social media -->
-  </div>
-  <!-- Grid container -->
-</footer>
-<section id="lab_social_icon_footer">    
-    <div class="container">
-            <div class="text-center center-block">
-                    <a href="https://www.facebook.com/bootsnipp"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
-                    <a href="https://twitter.com/bootsnipp"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
-                    <a href="https://plus.google.com/+Bootsnipp-page"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
-                    <a href="mailto:#"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
-        </div>
-    </div>
-</section>
-</footer>
+  
       <div>
         </html>
 {% endblock body %}

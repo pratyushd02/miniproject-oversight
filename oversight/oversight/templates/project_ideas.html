@@ -1,127 +1,9 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
+    
 <head>
-
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap');
-        
-
-        p{
-            margin:20px;
-        }
-        
-        body {
-            background-color: #fff;
-        }
-        
-        
-        .float-start {
-            width: 50%;
-            margin-right: 0px;
-        }
-        
-        .float-end {
-            text-align: start;
-        }
-        
-        h1 {
-            font-size: 40px;
-            margin-top: 50px;
-            margin-left: 25px;
-            color: #252525;
-        }
-        
-        h1 span {
-            font-family: 'Dancing Script', cursive;
-            color: #f6a192;
-            font-size: 64px;
-        }
-        
-        
-        .div-inline {
-            display: inline;
-        }
-        
-        .drop {
-            display: inline;
-            background-color: #fff;
-            color: #252525;
-            margin-left: 20px;
-            margin-bottom: 20px;
-            width: 300px;
-        
-        }
-        
-        .drop {
-            background-color: #fff;
-            color: #252525;
-            border: 2px solid #252525;
-            border-radius: 10px;
-        }
-        
-        .drop:hover {
-            color: #252525;
-        }
-        
-        input[type=text] {
-            background-color: #fff;
-            border: 2px solid #252525;
-            border-radius: 10px;
-            color: #252525;
-            width: 200px;
-            height: 40px;
-            margin-left: 20px;
-        }
-        
-        .submit {
-            background-image: linear-gradient(to right, #EC6F66 0%, #F3A183 51%, #EC6F66 100%);
-            margin: 10px;
-            padding: 7px 35px;
-            text-align: center;
-            text-transform: uppercase;
-            transition: 0.5s;
-            background-size: 200% auto;
-            color: white;
-            box-shadow: 0 0 20px #eee;
-            border-radius: 10px;
-            display: block;
-            border: 1px solid #eee;
-            margin-left: 75%;
-            margin-top: 20px;
-        }
-        
-        .submit:hover {
-            background-position: right center;
-            /* change the direction of the change here */
-            color: #fff;
-            text-decoration: none;
-            border: none;
-        }
-        
-        .response {
-            width: 500px;
-            height: 350px;
-            background-color: #fff;
-            border: 2px solid #252525;
-            color: #252525;
-            border-radius: 20px;
-        }
-        
-        h2 {
-            font-family: 'Montserrat', sans-serif;
-            color: #252525;
-            margin-top: 30px;
-        }
-        
-        h3 {
-            font-family: 'Montserrat', sans-serif;
-            color: #252525;
-            margin-top: 30px;
-            margin-bottom: 10px;
-        }
-        </style>
+   
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -130,8 +12,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
         </script>
-    <link rel="stylesheet" href="../css/navbar.css">
-    <link rel="stylesheet" href="../css/project.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/navbar.css">
+    <link rel="stylesheet" href="../static/project.css">
     <title>OverSight - Project Ideas</title>
 </head>
 
@@ -146,20 +29,45 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Sight-Bud</a>
+                        <a class="nav-link" href="/forums">Sight-Bud</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link active" href="#">Innovate Ave</a>
+                        <a class="nav-link active" href="/pro_ideas">Innovate Ave</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Sight-Notes</a>
+                        <a class="nav-link" href="/notes">Sight-Notes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Sight-SAP</a>
+                        <a class="nav-link" href="/gradpred">Sight-SAP</a>
                     </li>
                 </ul>
             </div>
+            
+            
+
+          <ul class="navbar-nav mr-auto">
+            {% if user.is_authenticated %} 
+            <div class="dropdown">
+                <button class="submit" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="../static/images/user.svg" width="20px" height="20px"> {{user.username}} 
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item"  href="/logout">Logout</a>
+                    <a class="dropdown-item"  href="/saved" >Saved</a></button>
+                </div>
+            </div>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Login</a>
+            </li>
+            {% endif %}
+          </ul>
+          
+          <div></div>
+
         </div>
+
+        
     </nav>
     <section class="main">
         <div class="container">
@@ -222,23 +130,26 @@
                     <!-- <label for="domain">Enter Domain : </label>
                     <input type="text" class="form-control" name="domain" id="domain"
                         placeholder="Enter Project Domain"> -->
-                    Give us a Domain/Subject for your project
+                    
+                    Give us a Domain/Subject for your project <br>
                     <div class="input-group mb-3">
                         <input name="domain" type="text" class="form-control" placeholder="Enter Your Project Domain">
                     </div>
                     <input type="submit" class="submit" name="submit"></input>
                 </div>
                 <div class="float-end">
-                    <h3> Ideas curated for you</h3>
+                   
                     <div class="response">
-                        <!-- {% if response %} -->
-                        <p>{{ response }}
+                         {% if response %} 
+                         <h3> Ideas curated for you</h3>
+                         <div class="response2"><p>{{ response }}
                             <input type="hidden" name="savecontent" value="{{ response }}">
-                        </p>
+                            <input onclick="alert('Saved!')" type="submit" class="submit" name="save" value="SAVE"
+                        id="save"></input>
+                        </p></div>
                         {% endif %}
                     </div>
-                    <input onclick="alert('Saved!')" type="submit" class="submit" name="save" value="SAVE"
-                        id="save"></input>
+                    
                 </div>
             </form>
         </div>
@@ -253,3 +164,54 @@
 </body>
 
 </html>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap');
+    
+    
+    body {
+        background-color: #fff;
+    }
+    
+    .submit {
+        background-image: linear-gradient(to right, #EC6F66 0%, #F3A183 51%, #EC6F66 100%);
+        margin: 10px;
+        padding: 7px 35px;
+        text-align: center;
+        text-transform: uppercase;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;
+        box-shadow: 0 0 20px #eee;
+        border-radius: 10px;
+        display: block;
+        border: 1px solid #eee;
+        margin-top: 10px;
+        margin-left:85px ;
+    }
+
+    .response {
+        width:500px ;
+        height: 350px;
+        background-color: #fff;
+        border: 2px solid white;
+        color: white;
+        border-radius: 20px;
+    }
+    
+    .response2{
+        border: 2px solid #252525;
+        color: #252525;
+        border-radius: 20px;
+    }
+    
+    .submit:hover {
+        background-position: right center;
+        /* change the direction of the change here */
+        color: #fff;
+        text-decoration: none;
+        border: none;
+    }
+    
+    </style>
