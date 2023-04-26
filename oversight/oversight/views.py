@@ -38,7 +38,7 @@ def forums(request):
             response = "Please enter engineering related queries"
         return JsonResponse({'response':response})
     else:
-        return render(request,'forums.html')
+        return render(request,'for.html')
     
 def pro_ideas(request):
     response = ""

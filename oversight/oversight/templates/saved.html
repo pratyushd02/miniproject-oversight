@@ -65,16 +65,16 @@
     </nav>
     <section class="save">
         <div class="container">
-            <h1>View your saved content here</h1>
+            <h1>View your saved content here</h1> <br>
             <form method="POST">
                 {% csrf_token %}
             <div class="row">
                 <div class="col-md-4">
                     <div class="card">
-                        <img class="card-img-top" src=".../static/images/chats.jpg" alt="Card image cap">
+                        <img class="card-img-top" src="../static/images/que.jpg" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">Notes</h5>
-                            <p class="card-text" style="padding-bottom: 17px;">View your saved notes staight from Sight-Notes here</p>
+                            <p class="card-text" style="padding-bottom: 17px;">View all your saved notes staight from Sight-Notes here</p>
                             <input type="submit" class="btn saved" name="notes" value="Saved Notes" style="width:90%"></input>
                             <!--<a href="#" class="btn saved">Saved Chats</a>-->
                         </div>
@@ -143,6 +143,11 @@
         color: #fff;
         text-decoration: none;
         border: none;
+    }
+
+    h1 {
+        font-family: 'Montserrat', sans-serif;
+        color: #252525;
     }
     
     </style>
