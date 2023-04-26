@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap');
 
-
+/* 
 .container {
     padding: 0.5rem;
     background-color: #fff;
 }
-
+ */
 
 .navbar-brand {
     font-family: 'Dancing Script', cursive;
@@ -24,15 +24,15 @@
     font-family: 'Montserrat', sans-serif;
     color: #252525;
     margin-left: 10px;
-    text-shadow: 0px 0px 1.5px rgba(255, 255, 255, 1);
-    transition: all 0.2s ease 0s;
+    /* text-shadow: 0px 0px 1.5px rgba(255, 255, 255, 1);
+    transition: all 0.2s ease 0s; */
 }
 
-.navbar .nav-link:hover {
+/* .navbar .nav-link:hover {
     color: black;
     text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
     transition: all 0.2s ease 0s;
-}
+} */
 
 .saved {
     background-image: linear-gradient(to right, #EC6F66 0%, #F3A183 51%, #EC6F66 100%);

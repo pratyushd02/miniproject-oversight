@@ -23,7 +23,7 @@ def chatbot_response(user_input):
     return response["choices"][0]["text"]
 
 def index(request):
-    return render(request,'index.html')
+    return render(request,'home.html')
     
 def forums(request):
     if request.method == 'POST':
@@ -109,31 +109,44 @@ def notes(request):
 def saved(request):
     current_user = request.user.email
     u = User.objects.get(email = current_user)
-    ideas = u.ideas.split(',>')
-    if ' ' in ideas:
-        ideas.remove(' ')
+    
+    if request.POST.get("proj"):
+        ideas = u.ideas.split(',>')
+        if ' ' in ideas:
+            ideas.remove(' ')
+        return render(request,'display.html',{'ideas':ideas ,'t':1})
+    
     if request.POST.get("deleteideas"):
+        ideas = u.ideas.split(',>')
         u.ideas = " "
         u.save()
+        return render(request,'display.html',{'ideas':ideas ,'t':1})
         
-            
-    questions = u.questions.split(',>')
-    if ' ' in questions:
-        questions.remove(' ')
-    
+    if request.POST.get("que"):        
+        questions = u.questions.split(',>')
+        if ' ' in questions:
+            questions.remove(' ')
+        return render(request,'display.html',{'questions':questions ,'t':2})
+        
     if request.POST.get("deleteque"):
+        questions = u.questions.split(',>')
         u.questions = " "
         u.save()
+        return render(request,'display.html',{'questions':questions ,'t':2})
     
-    notes = u.notes.split(',>')
-    if ' ' in notes:
-        notes.remove(' ')
-    
+    if request.POST.get("notes"):  
+        notes = u.notes.split(',>')
+        if ' ' in notes:
+            notes.remove(' ')
+        return render(request,'display.html',{'notes':notes ,'t':3})
+        
     if request.POST.get("deletenotes"):
+        notes = u.notes.split(',>')
         u.notes = " "
         u.save()
+        return render(request,'display.html',{'notes':notes ,'t':3})
         
-    return render(request,'saved.html',{'ideas':ideas,'notes':notes,'questions':questions})
+    return render(request,'saved.html')
 
 def register_request(request):
     if request.method == "POST":
