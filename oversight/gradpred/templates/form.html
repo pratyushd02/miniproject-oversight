@@ -127,10 +127,13 @@
     <div class="container" style="border-style: solid; border-color : #252525">
     <h4 style="text-align: center; color: #C60021; margin-top : 10px">Your Admit is difficult, Please improve your Profile</h4>
         {% if lst %}
-        Still you can manage to get into:
+        <h5 style="margin-left : 80px; color:black ;"> Still you can manage to get into:</h4><br>
+          <h6 style="margin-left : 80px; color:black ;"> No. of Colleges you can get into : {{ count }} </h6> <br>
+          <ul style="margin-left : 80px;">
         {% for i in lst %}
-        {{ i }}<br>
+        <li>{{ i }}</li><br>
         {% endfor %}
+      </ul>
         {% else %}
         {% for i in lst %}
         {{ i }}<br>
@@ -142,6 +145,7 @@
     <div class="container" style="border-style: solid; border-color : #252525">
     <h4 style="text-align: center; color: #C60021; margin-top : 10px">You can expect an admit </h4><br>
     <h5 style="margin-left : 80px; color:black ;">Colleges you can get into :</h5>
+    <h6 style="margin-left : 80px; color:black ;"> No. of Colleges you can get into : {{ count }} </h6> <br>
     <ul style="margin-left : 80px;">
     {% for i in lst %}
     <li>{{ i }}</li><br>

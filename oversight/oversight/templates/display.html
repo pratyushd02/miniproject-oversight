@@ -64,6 +64,7 @@
 
     
 </nav>
+<div class="container"> 
 <form method="POST">
     {% csrf_token %}
 
@@ -71,25 +72,26 @@
 <h3>Project Ideas</h3>
 
 {% for i in ideas %}
-{{ i }} 
+<p>{{ i }}</p> 
 {% endfor %}
-<input type="submit" class="submit" name="deleteideas" value="Delete"></input><br><br>
+<input type="submit" class="submit" name="deleteideas" value="Delete All"></input><br><br>
 {% elif t == 3 %}
 
 <h3>Notes</h3>
 {% for i in notes %}
-{{ i }} 
+<p>{{ i }}</p> 
 {% endfor %}
-<input type="submit" class="submit" name="deletenotes" value="Delete"></input><br><br>
+<input type="submit" class="submit" name="deletenotes" value="Delete All"></input><br><br>
 
 {% elif t == 2 %}
 <h3>Question Bank</h3>
 {% for i in questions %}
-{{ i }} 
+<p>{{ i }} </p> 
 {% endfor %}
-<input type="submit" class="submit" name="deleteque" value="Delete"></input><br><br>
+<input type="submit" class="submit" name="deleteque" value="Delete All"></input><br><br>
 
 </form>
+</div>
 {% endif %}
 
 <style>

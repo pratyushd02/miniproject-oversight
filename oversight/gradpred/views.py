@@ -38,7 +38,8 @@ def predict(request):
             csvreader_object=csv.DictReader(record)
             for row in csvreader_object:
                 if float(row["Gre"])<gre and float(row["Toefl"])<toefl and float(row["Cgpa"])<cgpa:
-                    lst.append(row["Universities"])     
+                    lst.append(row["Universities"])   
+        count = len(lst)  
         output = round(model.predict([[gre,toefl,uni,sop,lor,cgpa,research]])[0]) 
     
-    return render(request, 'form.html',{'output' : output , 'lst' : lst})
+    return render(request, 'form.html',{'output' : output , 'lst' : lst,'count':count})

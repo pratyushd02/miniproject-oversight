@@ -42,9 +42,9 @@ def forums(request):
     
 def pro_ideas(request):
     response = ""
+    r=[]
     if request.method == 'POST':
         if request.POST.get("submit"):
-            print(1)
             degree = float(request.POST.get("degree",-1))
             type = float(request.POST.get("type",-1))
             domain = request.POST.get("domain",-1)
@@ -61,18 +61,24 @@ def pro_ideas(request):
                     type = "Major"
                 
                 response = chatbot_response("List projects in bullet points that can be made for a "+type+" project "+"in the domain of "+domain+" for a "+degree+" degree student with their online examples")
+                r=response.split("•")
+                print(r)
+                if "\n\n" in r:
+                    r.remove("\n\n")
             else:
                 response = ""
         if request.POST.get("save"):
             current_user = request.user.email
+            print(current_user)
             response2 = request.POST.get("savecontent","")
             u = User.objects.get(email = current_user)
             u.ideas += ",>"+response2
             u.save()
-    return render(request,'project_ideas.html',{'response' : response})
+    return render(request,'project_ideas.html',{'response' : response,'r':r})
 
 def notes(request):
     response = ""
+    r=[]
     type = -1
     if request.method == 'POST':
         if request.POST.get("submit"):
@@ -85,6 +91,10 @@ def notes(request):
                 response = chatbot_response("notes on "+chp+","+sub+" for sem"+sem+branch+"engineering")        
             elif type==2:
                 response = chatbot_response("generate 10 practice questions on "+chp+","+sub+" for sem"+sem+branch+"engineering")
+                r=response.split("\n")
+                if "" in r:
+                    r.remove("")
+                
             else:
                 response = ""
                 
@@ -104,7 +114,7 @@ def notes(request):
                 u.save()
             
     
-    return render(request,'notes1.html',{'response' : response,'type':type})
+    return render(request,'notes1.html',{'response' : response,'type':type,'r':r})
 
 def saved(request):
     current_user = request.user.email
@@ -173,7 +183,7 @@ def login_request(request):
                 login(request, user)
                 messages.info(request, f"You are now logged in as {username}.")
                 
-                return redirect("saved")
+                return redirect("home")
             else:
                 messages.error(request,"Invalid username or password.")
         else:

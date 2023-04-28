@@ -81,13 +81,13 @@
                     <h3>Enter the following details</h3>
                     <div class="div-inline">
                         Choose your Degree type: <br>
-                        <select name="degree" class="form-select drop" aria-label="Default select example" required>
+                        <select name="degree" class="form-select drop" aria-label="Default select example">
                             <option selected>Degree</option>
                             <option value="1">Bachelors</option>
                             <option value="2">Masters</option>
                         </select> <br>
                         Choose your Project type: <br>
-                        <select name="type" class="form-select drop" aria-label="Default select example" required>
+                        <select name="type" class="form-select drop" aria-label="Default select example">
                             <option selected>Type</option>
                             <option value="1">Mini</option>
                             <option value="2">Major</option>
@@ -133,7 +133,7 @@
                     
                     Give us a Domain/Subject for your project <br>
                     <div class="input-group mb-3">
-                        <input name="domain" type="text" class="form-control" placeholder="Enter Your Project Domain" required>
+                        <input name="domain" type="text" class="form-control" placeholder="Enter Your Project Domain">
                     </div>
                     <input type="submit" class="submit" name="submit"></input>
                 </div>
@@ -142,10 +142,17 @@
                     <div class="response">
                          {% if response %} 
                          <h3> Ideas curated for you</h3>
-                         <div class="response2"><p>{{ response }}
+                         <div class="response2"><p style="margin:5px 5px 5px 5px;">
+                            <ul>
+                            {% for i in r %}
+                            <li>{{ i }}</li><br>
+                            {% endfor %}
+                            </ul>
+                            {% if user.is_authenticated %} 
                             <input type="hidden" name="savecontent" value="{{ response }}">
                             <input onclick="alert('Saved!')" type="submit" class="submit" name="save" value="SAVE"
                         id="save"></input>
+                        {% endif %}
                         </p></div>
                         {% endif %}
                     </div>
@@ -192,7 +199,7 @@
     }
 
     .response {
-        width:500px ;
+        width:550px ;
         height: 350px;
         background-color: #fff;
         border: 2px solid white;

@@ -68,8 +68,8 @@
     </nav>
     <section class="main">
         <div class="container">
-            <h1><span>Creativity </span>is the mother of <span
-                    style="color: #537FE7; font-size: 64px;">innovation</span></h1>
+            <h1><span>Guide </span>you through the labyrinth of <span
+                    style="color: #537FE7; font-size: 64px;">knowledge</span></h1>
 
             <form method="POST">
                 {% csrf_token %}
@@ -109,7 +109,7 @@
                    
 
                         <input type="text" class="form-control" name="chp" id="topic"
-                        placeholder="Enter Topic" required><br>
+                        placeholder="Enter Topic"><br>
                         
                     <input type="submit" value="Generate" class="submit" name="submit"></input>
                 </div>
@@ -120,12 +120,24 @@
                     <div class="response">
                         {% if response %}
                         <h3> Ideas curated for you</h3>
-                        <div class="response2"><p>{{ response }}
+                        <div class="response2">
+                            <p>
+                        {% if type == 1 %}
+                        {{ response }}
+                        {% elif type == 2 %}
+                            {% for i in r %}
+                            {{ i }}<br>
+                            {% endfor %}
+                        {% endif %}
+                        {% if user.is_authenticated %}  
                         <input type="hidden" name="savecontent" value="{{ response }}">
                         <input type="hidden" name="savecontenttype" value="{{ type }}">
                         <input onclick="alert('Saved!')" type="submit" class="submit" name="save" value="SAVE"
                         id="save"></input>
-                        </p></div>
+                        {% endif %}
+                        </p>
+                    
+                        </div>
                         {% endif %}
                     </div>
                     
