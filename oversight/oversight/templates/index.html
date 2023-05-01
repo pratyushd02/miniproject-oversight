@@ -75,13 +75,14 @@
 </head>
 
 <body style="background-color: rgba(224, 110, 30, 0.1);  ">
-  <a class="navbar-brand" href="/home">Oversight</a>
+  <a class="navbar-brand" href="/">Oversight</a>
 {% include "base.html" %}
 {% block content %}      
 
 {% load crispy_forms_tags %}
-
-    
+{% for message in messages %}
+{{ message }}
+{% endfor %}
     
     <div class="float-start" >
     <div class="container py-5" style="margin-left:40%; margin-top:120px;">

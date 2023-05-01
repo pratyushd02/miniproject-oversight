@@ -133,4 +133,4 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 import openai
 
-openai.api_key = "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"
+openai.api_key = "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"

@@ -66,6 +66,10 @@
 	{% block content %}
 
 	{% load crispy_forms_tags %}
+	{% for message in messages %}
+	{{ message }}
+	{% endfor %}
+    
 
 	<!--Register-->
 	<div class="float-start" >
@@ -77,7 +81,7 @@
 			<button class="btn" type="submit" style="color: #252525; border: 2px solid #252525; margin-left: 30%; padding:7px 30px; margin-bottom:20px">Register</button>
 			<p class="" style="margin-left:50px"; >If you already have an account, <a href="/login" style="color: #537FE7;">login</a> instead.</p>	
 		</form>
-		<button type="button" class="btn b" type="submit" style="border: 2px solid #252525; margin-left: 30%;"> <a href="" style="color: #252525; ">Back to Home</a>
+		<button type="button" class="btn b" type="submit" style="border: 2px solid #252525; margin-left: 40%;"> <a href="/" style="color: #252525; ">Back to Home</a>
 		</button>
 	</div>
 </div>
