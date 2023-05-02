@@ -49,7 +49,7 @@ def pro_ideas(request):
             type = float(request.POST.get("type",-1))
             domain = request.POST.get("domain",-1)
             
-            if degree != -1 or type != -1 or domain != -1:
+            if degree != -1 and type != -1 and domain != -1:
                 if degree == 1:
                     degree = "Bachelors"
                 else:
@@ -60,11 +60,14 @@ def pro_ideas(request):
                 else:
                     type = "Major"
                 
-                response = chatbot_response("List projects in bullet points that can be made for a "+type+" project "+"in the domain of "+domain+" for a "+degree+" degree student with their online examples")
-                r=response.split("•")
-                print(r)
-                if "\n\n" in r:
-                    r.remove("\n\n")
+                if chatbot_response("Is"+ domain +"related to science or engineering? answer in yes or no").strip() == "No":
+                    response="Enter a valid domain"
+                    r = ["Enter a valid domain"]
+                else:
+                    response = chatbot_response("List projects in bullet points that can be made for a "+type+" project "+"in the domain of "+domain+" for a "+degree+" degree student with their online examples")
+                    r=response.split("•")
+                    if "\n\n" in r:
+                        r.remove("\n\n")
             else:
                 response = ""
         if request.POST.get("save"):
@@ -87,13 +90,17 @@ def notes(request):
             sub = request.POST.get("sub","")
             sem = request.POST.get("sem","")
             branch = request.POST.get("branch","")
-            if type==1:
-                response = chatbot_response("notes on "+chp+","+sub+" for sem"+sem+branch+"engineering")        
-            elif type==2:
-                response = chatbot_response("generate 10 practice questions on "+chp+","+sub+" for sem"+sem+branch+"engineering")
-                r=response.split("\n")
-                if "" in r:
-                    r.remove("")
+            if type != -1 and chp!="" and sub!="" and sem!="" and branch!="":
+                if int(sem)>8:
+                    response = "Enter Valid Semester"
+                else:  
+                    if type==1:
+                        response = chatbot_response("notes on "+chp+","+sub+" for sem"+sem+branch+"engineering")        
+                    elif type==2:
+                        response = chatbot_response("generate 10 practice questions on "+chp+","+sub+" for sem"+sem+branch+"engineering")
+                        r=response.split("\n")
+                        if "" in r:
+                            r.remove("")
                 
             else:
                 response = ""
@@ -182,7 +189,7 @@ def login_request(request):
             if user is not None:
                 login(request, user)
                 messages.info(request, f"You are now logged in as {username}.")
-                return redirect("home")
+                return redirect("/")
             else:
                 messages.error(request,"Invalid username or password.")
         else:
